@@ -43,6 +43,7 @@
 #include <linux/ktime.h>
 #include <linux/extcon.h>
 #include "pmic-voter.h"
+#include "battery.h"
 
 #ifdef CONFIG_QPNP_SMBCHARGER_EXTENSION
 #define WAIT_TO_READ_DPDM_AT_PROBE_MS	50
@@ -9184,6 +9185,8 @@ static void smbchg_shutdown(struct platform_device *pdev)
 	pr_smb(PR_MISC, "Wait 1S to settle\n");
 	msleep(1000);
 	chip->hvdcp_3_det_ignore_uv = false;
+
+	qcom_batt_deinit();
 
 	pr_smb(PR_STATUS, "wrote power off configurations\n");
 }
