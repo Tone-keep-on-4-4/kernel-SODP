@@ -2232,7 +2232,6 @@ static int venus_hfi_core_init(void *device)
 	struct list_head *ptr, *next;
 	struct hal_session *session = NULL;
 	struct venus_hfi_device *dev;
-	struct clock_voltage_info *cv_info = NULL;
 
 	if (!device) {
 		dprintk(VIDC_ERR, "Invalid device\n");
